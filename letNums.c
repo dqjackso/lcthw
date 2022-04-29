@@ -1,16 +1,30 @@
 #include <stdio.h>
 
-int main (int argc, char *argv[]){
+int main (int argc, char *argv[]) {
 
-	int i = 0;
-	char vowels[] = "AaEeIiOoUu";
+	if (argc > 2) {
 
-	for (i = 0; vowels[i] != '\0'; i++) {
+		printf("ERROR: ONLY ENTER A SINGLE ARGUMENT");
 
-		printf("Num for %c: %d\n", vowels[i], vowels[i]);
-	
+		return 1;
+
 	}
 
-	return 0;
+	int startNumber = argv[1][0] - 0;
+
+	if (startNumber < 86) {
+
+		int newNumber = startNumber + 32;
+
+		printf("Input: %c | Output: %c", startNumber, newNumber);
+
+		return newNumber;
+	} else {
+
+		printf("ERROR: YOU MIGHT HAVE ENTERED A LOWER CASE LETTER");
+
+		return 1;
+
+	}
 
 }
