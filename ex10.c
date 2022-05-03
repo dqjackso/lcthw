@@ -1,39 +1,28 @@
 #include <stdio.h>
 
-int convertToLower (int argc, char *argv[]) {
+char lowerCase (char originalLetter) {
 
-         if (argc > 2) {
+        int startNumber = originalLetter - 0;
 
-                 printf("ERROR: ONLY ENTER A SINGLE ARGUMENT");
+        if ((64 < startNumber) && (startNumber < 91)) {
+               int newNumber = startNumber + 32;
+               char returnLetter = newNumber;
+               return returnLetter;
+        } else if ((96 < startNumber) && (startNumber < 123)) {
+               char returnLetter = startNumber;
+               return returnLetter;
+        } else {
 
-                 return 1;
+	return 'E';
 
-         }
-
-         int startNumber = argv[1][0] - 0;
-
-         if (startNumber < 86) {
-
-                 int newNumber = startNumber + 32;
-
-                 printf("Input: %c | Output: %c", startNumber, newNumber);
-
-                 return newNumber;
-         } else {
-
-                 printf("ERROR: YOU MIGHT HAVE ENTERED A LOWER CASE LETTER");
-
-                 return 1;
-
-         }
-
+        }
  }
 
 
 int main(int argc, char *argv[]) {
 
 	if (argc != 2) {
-		printf("ERROR: You need one argument.\n");
+		printf("ERROR: You need at least one argument.\n");
 		//this is how you abort a program
 		return 1;
 	}
@@ -41,42 +30,25 @@ int main(int argc, char *argv[]) {
 	int i = 0;
 	for (i = 0; argv[1][i] != '\0'; i++) {
 		char letter = argv[1][i];
+		char lowercase = lowerCase(letter);
 
-		switch (letter) {
+		switch (lowercase) {
 			case 'a':
-			case 'A':
-				printf("%d: 'A'\n", i);
-				break;
-
 			case 'e':
-			case 'E':
-				printf("%d: 'E'\n", i);
-				break;
-
 			case 'i':
-			case 'I':
-				printf("%d: 'I'\n", i);
-				break;
-
 			case 'o':
-			case 'O':
-				printf("%d: 'O'\n", i);
-				break;
-
 			case 'u':
-			case 'U':
-				printf("%d: 'U'\n", i);
+				printf("%d: %c\n", i, lowercase);
 				break;
-
 			case 'y':
-			case 'Y':
 				if (i > 2) {
-					printf("%d: 'Y'\n", i);
+
+					printf("%d: %c\n", i, lowercase);
+
 				}
 				break;
-
 			default:
-				printf("%d: %c is not a vowel\n", i, letter);
+				printf("%d: %c is not a vowel\n", i, lowercase);
 		}
 	}
 
