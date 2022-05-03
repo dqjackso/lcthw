@@ -29,8 +29,7 @@ int main(int argc, char *argv[]) {
 
 	int i = 0;
 	for (i = 0; argv[1][i] != '\0'; i++) {
-		char letter = argv[1][i];
-		char lowercase = lowerCase(letter);
+		char lowercase = lowerCase(argv[1][i]);
 
 		switch (lowercase) {
 			case 'a':
