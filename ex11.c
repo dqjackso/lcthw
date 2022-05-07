@@ -3,7 +3,7 @@
 int main (int argc, char *argv[]) {
 
 	int numbers[4] = { 0 };
-	char name[4] = { 'a' };
+	char *name = "aaa";
 
 	// first, print them out raw
 	printf("numbers: %d %d %d %d\n",
@@ -21,10 +21,12 @@ int main (int argc, char *argv[]) {
 	numbers[3] = 4;
 
 	// set up the name
-	name[0] = 'Z';
-	name[1] = 'e';
-	name[2] = 'd';
-	name[3] = '\0';
+	// name[0] = 'Z';
+	// name[1] = 'e';
+	// name[2] = 'd';
+	// name[3] = '\0';
+
+	name = "Zed";
 
 	// then print them out initialized
 	printf("numbers %d %d %d %d\n",
